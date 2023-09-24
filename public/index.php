@@ -7,4 +7,4 @@ if (filter_input(INPUT_GET, 'phpinfo')) {
     exit;
 }
 
-echo \App\HelloWorld::sayHello();
+echo 'Hello, World!';
