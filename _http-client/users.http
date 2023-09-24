@@ -1,0 +1,7 @@
+http://localhost/api
+Accept: application/json
+
+###
+
+GET http://localhost/api/users
+Accept: application/json

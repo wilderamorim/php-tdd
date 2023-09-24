@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Exceptions;
-
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
 
@@ -26,5 +25,20 @@ class Handler extends ExceptionHandler
         $this->reportable(function (Throwable $e) {
             //
         });
+    }
+
+    /**
+     * Render an exception into an HTTP response.
+     */
+    public function render($request, Throwable $e)
+    {
+        if ($e instanceof \App\Repository\Exceptions\NotFoundException) {
+            return response()->json([
+                'message' => 'The given data was invalid.',
+                'errors' => $e->getMessage(),
+            ], \Illuminate\Http\Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
+        return parent::render($request, $e);
     }
 }

@@ -17,6 +17,7 @@ class UserTest extends ModelTestCase
             \Laravel\Sanctum\HasApiTokens::class,
             \Illuminate\Database\Eloquent\Factories\HasFactory::class,
             \Illuminate\Notifications\Notifiable::class,
+            \Illuminate\Database\Eloquent\Concerns\HasUuids::class,
         ];
     }
 
